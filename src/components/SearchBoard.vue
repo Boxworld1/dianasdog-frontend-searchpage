@@ -22,7 +22,6 @@ export default {
     };
   },
   methods: {
-    //wait to test
     search(query) {
       this.query = query;
       var query_json = {

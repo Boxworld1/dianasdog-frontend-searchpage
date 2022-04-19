@@ -10,7 +10,7 @@ const request_json = {
   GET: (get_function) => {
     axios.get('/search')
       .then((res) => {
-        get_function(res.data.data)
+        get_function(res.data)
       })
       .catch(function (error) {
         console.log(error)
@@ -19,9 +19,10 @@ const request_json = {
   POST: (post_function, return_function, new_message) => {
     axios.post('/search', JSON.stringify(new_message))
       .then((res) => {
-        if (res.data.code === 201 || res.data.code === 200) {
+        console.log(res)
+        if (res.status === 201 || res.status === 200) {
           post_function(true)
-          return_function(res.data.data)
+          return_function(res.data)
         }
         else {
           post_function(false)

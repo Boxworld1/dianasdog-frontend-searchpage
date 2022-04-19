@@ -4,7 +4,8 @@ module.exports = defineConfig({
   devServer: {
     proxy: {
       '/search': {
-        target: 'http://localhost:8000', // todo:修改为你的Django服务器地址
+        target: 'https://Backend-DianasDog.app.secoder.net', // todo:修改为你的Django服务器地址
+        secure: false,
         changeOrigin: true,
       }
     }
