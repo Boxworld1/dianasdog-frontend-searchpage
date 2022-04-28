@@ -1,7 +1,18 @@
 <template>
-  <div id="search-board">
+  <div id="search-board" class="container">
+    
     <SearchBox :query="query" :search="search" />
-    <CardBox :cardContent="cardContent" />
+    <div class="row-cols-3 row gx-4 gy-4">
+      <CardBox :cardContent="cardContent" />
+      <CardBox :cardContent="cardContent" />
+      <CardBox :cardContent="cardContent" />
+      <CardBox :cardContent="cardContent" />
+      <CardBox :cardContent="cardContent" />
+      <CardBox :cardContent="cardContent" />
+      <CardBox :cardContent="cardContent" />
+      <CardBox :cardContent="cardContent" />
+      <CardBox :cardContent="cardContent" />
+    </div>
   </div>
 </template>
 
@@ -25,8 +36,8 @@ export default {
     search(query) {
       this.query = query;
       var query_json = {
-        "query": this.query
-      }
+        query: this.query,
+      };
       request_json.POST(this.query_succeed, this.get_result, query_json);
     },
     query_succeed(bool) {
@@ -38,14 +49,11 @@ export default {
     },
     get_result(res) {
       this.cardContent = res;
-    }
+    },
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#search-board {
-  margin-top: 20px;
-}
 </style>
