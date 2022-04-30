@@ -17,6 +17,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@media (min-width: 800px) {
+  #title {
+    font-size: 6rem !important;
+  }
+}
 #searchBoard { 
   background-image: url('@/assets/background.jpg');
   background-size: cover;
@@ -24,6 +29,6 @@ export default {
   height: 100vh;
 }
 #title {
-  font-size: 6rem;
+  font-size: 4.5rem;
 }
 </style>

@@ -15,7 +15,7 @@
         id="searchButton"
         @click="onClicked()"
       >
-      <img src="@/assets/icon_search.svg" style="width:20px"/>
+        <img src="@/assets/icon_search.svg" style="width: 20px" />
       </button>
     </div>
   </div>
@@ -27,12 +27,12 @@ export default {
   props: {
     searchText: {
       type: String,
-    }
+    },
   },
   watch: {
     searchText() {
-      this.text = this.searchText
-    }
+      this.text = this.searchText;
+    },
   },
   data() {
     return {
@@ -42,17 +42,21 @@ export default {
   },
   methods: {
     onClicked() {
-      window.location.assign(this.text)
-    }
-  }
+      window.location.assign(this.text);
+    },
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@media (min-width: 800px) {
+  #searchBox {
+    width: 800px !important;
+  }
+}
 #searchBox {
-  width: 800px;
-  
+  width: 90%
 }
 #searchText {
   font-size: 1.2rem;
