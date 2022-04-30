@@ -2,7 +2,6 @@
   <div id="searchBoard" class="d-flex justify-content-center align-items-center flex-column">
     <h1 id="title">Search</h1>
     <SearchBox/>
-
   </div>
 </template>
 
@@ -21,7 +20,7 @@ export default {
 #searchBoard { 
   background-image: url('@/assets/background.jpg');
   background-size: cover;
-  width: 100wh;
+  width: 100vw;
   height: 100vh;
 }
 #title {
