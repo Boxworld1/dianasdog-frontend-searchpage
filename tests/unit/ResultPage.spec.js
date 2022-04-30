@@ -12,9 +12,10 @@ describe('ResultPage.vue', () => {
     expect((inputText.element).value).toBe(testcase)
   })
 
-  it('点击查找', async () => {
+  it('点击查找', () => {
     const searchButton = wrapper.find('#searchButton')
-    await searchButton.trigger('click')
+    searchButton.trigger('click')
     expect((wrapper.find('#searchText').element).value).toBe(testcase)
   })
+
 })

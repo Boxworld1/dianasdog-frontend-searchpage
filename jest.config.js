@@ -12,4 +12,5 @@ module.exports = {
     "text",
     "lcov"
   ],
+  testTimeout: 30000,
 }
