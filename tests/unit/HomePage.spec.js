@@ -1,11 +1,9 @@
-import { shallowMount } from '@vue/test-utils'
-import SearchBox from '@/components/SearchBox.vue'
+import { mount } from '@vue/test-utils'
+import HomePage from '@/views/HomePage.vue'
 
-describe('SearchBox.vue', () => {
-  const wrapper = shallowMount(SearchBox, {
-    props: {}
-  })
-
+describe('HomePage.vue', () => {
+  const wrapper = mount(HomePage)
+  
   it('文本框输入', () => {
     const inputText = wrapper.find('#searchText')
     inputText.setValue('my input')
