@@ -1,11 +1,11 @@
 <template>
   <div>
-    <header class="d-flex">
-      <a id="searchIcon" href="/" class="d-block mr-4">Search</a>
+    <header class="d-flex justify-content-center">
+      <a id="searchIcon" href="/" class="d-none d-md-block mr-4">Search</a>
       <SearchBox :searchText="text"/>
     </header>
     <div id="resultPage" class="container">
-      <div class="row-cols-3 row gx-4 gy-4">
+      <div class="row-cols-1 row-cols-md-2 row-cols-xl-3 row gx-4 gy-4">
         <!-- <CardList :cardList="cardContent" /> -->
         <CardBox :cardContent="cardContent" />
         <CardBox :cardContent="cardContent" />
