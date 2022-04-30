@@ -7,6 +7,7 @@
         placeholder="type something..."
         id="searchText"
         v-model="text"
+        maxlength="50"
       />
       <button
         class="btn btn-outline-primary bg-white border-secondary"

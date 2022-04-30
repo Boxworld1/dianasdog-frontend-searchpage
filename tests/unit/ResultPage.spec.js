@@ -1,9 +1,9 @@
-import { shallowMount } from '@vue/test-utils'
-import SearchBox from '@/components/SearchBox.vue'
+import { mount } from '@vue/test-utils'
+import ResultPage from '@/views/ResultPage.vue'
 
-describe('SearchBox.vue', () => {
-  const wrapper = shallowMount(SearchBox)
-  const testcase = "my input"
+describe('ResultPage.vue', () => {
+  const wrapper = mount(ResultPage)
+  const testcase = "红豆词"
   
   it('文本框输入', () => {
     const inputText = wrapper.find('#searchText')
@@ -12,9 +12,9 @@ describe('SearchBox.vue', () => {
     expect((inputText.element).value).toBe(testcase)
   })
 
-  it('点击查找', () => {
+  it('点击查找', async () => {
     const searchButton = wrapper.find('#searchButton')
-    searchButton.trigger('click')
+    await searchButton.trigger('click')
     expect((wrapper.find('#searchText').element).value).toBe(testcase)
   })
 })
