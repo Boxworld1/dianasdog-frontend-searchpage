@@ -1,22 +1,22 @@
 <template>
   <div id="app">
-    <HomePage v-if="get_path()=='/'"/>
-    <SearchBoard v-else/>
+    <HomePage v-if="getPath()=='/'"/>
+    <ResultPage v-else/>
   </div>
 </template>
 
 <script>
-import SearchBoard from './components/SearchBoard.vue'
+import ResultPage from './views/ResultPage.vue'
 import HomePage from './views/HomePage.vue'
 
 export default {
   name: 'app',
   components: {
-    SearchBoard,
+    ResultPage,
     HomePage
   },
   methods: {
-    get_path() {
+    getPath() {
       return document.location.pathname
     },
   }

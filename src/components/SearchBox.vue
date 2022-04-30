@@ -1,12 +1,13 @@
 <template>
   <div id="searchBox">
-    <div class="input-group mb-3">
+    <div class="input-group">
       <input
         type="text"
         class="form-control border-secondary"
         placeholder="type something..."
         id="searchText"
-        v-model="searchText"
+        v-model="text"
+        maxlength="50"
       />
       <button
         class="btn btn-outline-primary bg-white border-secondary"
@@ -23,15 +24,25 @@
 <script>
 export default {
   name: "SearchBox",
+  props: {
+    searchText: {
+      type: String,
+    }
+  },
+  watch: {
+    searchText() {
+      this.text = this.searchText
+    }
+  },
   data() {
     return {
-      searchText: "",
+      text: "",
       query: "",
     };
   },
   methods: {
     onClicked() {
-      window.location.assign(this.searchText)
+      window.location.assign(this.text)
     }
   }
 };

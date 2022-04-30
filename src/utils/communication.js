@@ -6,32 +6,29 @@
 import axios from 'axios'    //引入axios
 axios.defaults.withCredentials = true
 
-const request_json = {
-  GET: (get_function) => {
-    axios.get('/search')
-      .then((res) => {
-        get_function(res.data)
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
+const Request = {
+  query: async (postFunction, returnFunction, query) => {
+    console.log(query)
+    try {
+      const response = await axios
+        .post('/search', {
+          query: query,
+        })
+      var data = new Object();
+      data = response.data
+      console.log(response)
+      if (response.status === 200 || response.status === 201) {
+        postFunction(true)
+        returnFunction(data.content)
+      } else {
+        postFunction(false)
+      }
+    }
+    catch (e) {
+      console.error(e)
+      postFunction(false)
+    }
   },
-  POST: (post_function, return_function, new_message) => {
-    axios.post('/search', JSON.stringify(new_message))
-      .then((res) => {
-        console.log(res)
-        if (res.status === 201 || res.status === 200) {
-          post_function(true)
-          return_function(res.data)
-        }
-        else {
-          post_function(false)
-        }
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
-  }
 }
 
-export default request_json
+export default Request

@@ -1,8 +1,8 @@
-import { shallowMount } from '@vue/test-utils'
-import SearchBox from '@/components/SearchBox.vue'
+import { mount } from '@vue/test-utils'
+import App from '@/App.vue'
 
-describe('SearchBox.vue', () => {
-  const wrapper = shallowMount(SearchBox)
+describe('App.vue', () => {
+  const wrapper = mount(App)
   const testcase = "my input"
   
   it('文本框输入', () => {
