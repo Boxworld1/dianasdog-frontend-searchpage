@@ -6,7 +6,6 @@
     </header>
     <div id="resultPage" class="container">
       <div class="row-cols-1 row-cols-md-2 row-cols-xl-3 row p-3">
-        <!-- <CardList :cardList="cardContent" /> -->
         <CardBox :cardContent="cardContent" />
         <CardBox :cardContent="cardContent" />
         <CardBox :cardContent="cardContent" />

@@ -1,6 +1,6 @@
 <template>
   <div class="p-3">
-    <div id="cardBox" class="border col">
+    <div id="cardBox" class="card col">
       <img
         src="http://p6-dcd.byteimg.com/img/motor-img/60f7fe399047c36208591432805404b0~240x0.png"
         class="card-img-top"
@@ -34,7 +34,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#cardBox {
-
-}
 </style>
