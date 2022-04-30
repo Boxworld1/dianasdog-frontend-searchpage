@@ -11,7 +11,7 @@
       <button
         class="btn btn-outline-primary bg-white border-secondary"
         type="button"
-        id="button-addon2"
+        id="searchButton"
         @click="onClicked()"
       >
       <img src="@/assets/icon_search.svg" style="width:20px"/>
@@ -23,22 +23,15 @@
 <script>
 export default {
   name: "SearchBox",
-  props: {
-    Search: {
-      type: Function,
-      default: () => {
-        return () => {};
-      },
-    },
-  },
   data() {
     return {
+      searchText: "",
       query: "",
     };
   },
   methods: {
     onClicked() {
-      document.location.href = this.searchText
+      window.location.assign(this.searchText)
     }
   }
 };

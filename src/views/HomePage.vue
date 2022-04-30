@@ -1,7 +1,7 @@
 <template>
   <div id="searchBoard" class="d-flex justify-content-center align-items-center flex-column">
     <h1 id="title">Search</h1>
-    <SearchBox :query="query" :search="search" />
+    <SearchBox/>
 
   </div>
 </template>
