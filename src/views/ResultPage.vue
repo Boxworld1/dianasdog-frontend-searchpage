@@ -5,7 +5,7 @@
       <SearchBox :searchText="text"/>
     </header>
     <div id="resultPage" class="container">
-      <div class="row-cols-1 row-cols-md-2 row-cols-xl-3 row gx-4 gy-4">
+      <div class="row-cols-1 row-cols-md-2 row-cols-xl-3 row p-3">
         <!-- <CardList :cardList="cardContent" /> -->
         <CardBox :cardContent="cardContent" />
         <CardBox :cardContent="cardContent" />
@@ -39,7 +39,7 @@ export default {
     };
   },
   mounted: function () {
-    this.text = decodeURI(this.getPath().slice(1))
+    this.text = decodeURIComponent(this.getPath()).slice(1)
     Request.query(this.querySucceed, this.getResult, this.text);
   },
   methods: {
@@ -81,5 +81,9 @@ header {
   align-items: center;
   margin: 0;
   padding: 10px;
+}
+
+#CardBox {
+
 }
 </style>
