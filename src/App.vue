@@ -1,17 +1,24 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png" style="width: 100px; height: 100px">
-    <SearchBoard/>
+    <HomePage v-if="get_path()=='/'"/>
+    <SearchBoard v-else/>
   </div>
 </template>
 
 <script>
 import SearchBoard from './components/SearchBoard.vue'
+import HomePage from './views/HomePage.vue'
 
 export default {
   name: 'app',
   components: {
-    SearchBoard
+    SearchBoard,
+    HomePage
+  },
+  methods: {
+    get_path() {
+      return document.location.pathname
+    },
   }
 }
 </script>
@@ -23,6 +30,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 40px;
 }
 </style>

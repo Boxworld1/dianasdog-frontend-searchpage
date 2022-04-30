@@ -1,38 +1,49 @@
 <template>
-  <div id="search-box">
-    <el-input placeholder="请输入内容" v-model="query" class="input-with-select">
-    <el-button slot="append" icon="el-icon-search" @click="Search(query)"></el-button>
-  </el-input>
+  <div id="searchBox">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control border-secondary"
+        placeholder="type something..."
+        id="searchText"
+        v-model="searchText"
+      />
+      <button
+        class="btn btn-outline-primary bg-white border-secondary"
+        type="button"
+        id="searchButton"
+        @click="onClicked()"
+      >
+      <img src="@/assets/icon_search.svg" style="width:20px"/>
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SearchBox',
-  props: {
-    Search: {
-      type:Function,
-      default: ()=>{
-        return ()=>{}
-      }
-    }
-  },
-  data(){
+  name: "SearchBox",
+  data() {
     return {
-        query: ""
-    }
+      searchText: "",
+      query: "",
+    };
   },
-
-}
+  methods: {
+    onClicked() {
+      window.location.assign(this.searchText)
+    }
+  }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .el-input {
-    width: 40%;
-    margin-bottom: 20px;
-  }
-  .input-with-select .el-input-group__prepend {
-    background-color: #fff;
-  }
+#searchBox {
+  width: 800px;
+  
+}
+#searchText {
+  font-size: 1.2rem;
+}
 </style>
