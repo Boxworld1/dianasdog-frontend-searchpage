@@ -8,7 +8,6 @@ axios.defaults.withCredentials = true
 
 const Request = {
   query: async (postFunction, returnFunction, query) => {
-    query = decodeURI(query)
     console.log(query)
     try {
       const response = await axios
@@ -20,8 +19,7 @@ const Request = {
       console.log(response)
       if (response.status === 200 || response.status === 201) {
         postFunction(true)
-        returnFunction(data)
-        console.log(data.data)
+        returnFunction(data.content)
       } else {
         postFunction(false)
       }

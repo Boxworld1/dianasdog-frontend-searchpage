@@ -1,18 +1,22 @@
 <template>
-  <div id="resultPage" class="container, row">
-    <header>
-      <SearchBox />
+  <div>
+    <header class="d-flex">
+      <a id="searchIcon" href="/" class="d-block mr-4">Search</a>
+      <SearchBox :searchText="text"/>
     </header>
-    <div class="row-cols-3 row gx-4 gy-4">
-      <CardBox :cardContent="cardContent" />
-      <CardBox :cardContent="cardContent" />
-      <CardBox :cardContent="cardContent" />
-      <CardBox :cardContent="cardContent" />
-      <CardBox :cardContent="cardContent" />
-      <CardBox :cardContent="cardContent" />
-      <CardBox :cardContent="cardContent" />
-      <CardBox :cardContent="cardContent" />
-      <CardBox :cardContent="cardContent" />
+    <div id="resultPage" class="container">
+      <div class="row-cols-3 row gx-4 gy-4">
+        <!-- <CardList :cardList="cardContent" /> -->
+        <CardBox :cardContent="cardContent" />
+        <CardBox :cardContent="cardContent" />
+        <CardBox :cardContent="cardContent" />
+        <CardBox :cardContent="cardContent" />
+        <CardBox :cardContent="cardContent" />
+        <CardBox :cardContent="cardContent" />
+        <CardBox :cardContent="cardContent" />
+        <CardBox :cardContent="cardContent" />
+        <CardBox :cardContent="cardContent" />
+      </div>
     </div>
   </div>
 </template>
@@ -29,12 +33,14 @@ export default {
   },
   data() {
     return {
+      text: "",
       query: "",
-      cardContent: "666",
+      cardContent: [],
     };
   },
-  mounted: function() {
-    Request.query(this.querySucceed, this.getResult, this.getPath().slice(1));
+  mounted: function () {
+    this.text = decodeURI(this.getPath().slice(1))
+    Request.query(this.querySucceed, this.getResult, this.text);
   },
   methods: {
     getPath() {
@@ -54,6 +60,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#searchIcon {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: black;
+  margin: 0 20px;
+  text-decoration:none;
+}
+
 #resultPage {
   display: flex;
 }
@@ -66,6 +80,6 @@ header {
   /* display: flex; */
   align-items: center;
   margin: 0;
-  padding: 10px 50px;
+  padding: 10px;
 }
 </style>

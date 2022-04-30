@@ -9,7 +9,6 @@ describe('SearchBox.vue', () => {
   it('文本框输入', () => {
     const inputText = wrapper.find('#searchText')
     inputText.setValue('my input')
-
     expect((inputText.element).value).toBe('my input')
   })
 

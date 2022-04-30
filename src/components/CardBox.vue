@@ -20,8 +20,8 @@ export default {
   name: "CardBox",
   props: {
     cardContent: {
-      type: String,
-      default: () => "我是内容",
+      type: Object,
+      default: () => {}
     },
   },
   data() {
