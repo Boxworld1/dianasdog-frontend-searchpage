@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     onClicked() {
-      window.location.assign(this.text);
+      window.location.assign(encodeURIComponent(this.text));
     },
   },
 };

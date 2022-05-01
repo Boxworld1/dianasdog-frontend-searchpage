@@ -5,17 +5,8 @@
       <SearchBox :searchText="text"/>
     </header>
     <div id="resultPage" class="container">
-      <div class="row-cols-1 row-cols-md-2 row-cols-xl-3 row gx-4 gy-4">
-        <!-- <CardList :cardList="cardContent" /> -->
-        <CardBox :cardContent="cardContent" />
-        <CardBox :cardContent="cardContent" />
-        <CardBox :cardContent="cardContent" />
-        <CardBox :cardContent="cardContent" />
-        <CardBox :cardContent="cardContent" />
-        <CardBox :cardContent="cardContent" />
-        <CardBox :cardContent="cardContent" />
-        <CardBox :cardContent="cardContent" />
-        <CardBox :cardContent="cardContent" />
+      <div class="row-cols-1 row-cols-md-2 row-cols-xl-3 row p-3">
+        <CardBox v-for="content, key in contentList" :key="key" :content="JSON.parse(content)"/>
       </div>
     </div>
   </div>
@@ -35,11 +26,11 @@ export default {
     return {
       text: "",
       query: "",
-      cardContent: [],
+      contentList: [],
     };
   },
   mounted: function () {
-    this.text = decodeURI(this.getPath().slice(1))
+    this.text = decodeURIComponent(this.getPath()).slice(1)
     Request.query(this.querySucceed, this.getResult, this.text);
   },
   methods: {
@@ -52,7 +43,7 @@ export default {
       }
     },
     getResult(res) {
-      this.cardContent = res;
+      this.contentList = res;
     },
   },
 };
@@ -81,5 +72,9 @@ header {
   align-items: center;
   margin: 0;
   padding: 10px;
+}
+
+#CardBox {
+
 }
 </style>
