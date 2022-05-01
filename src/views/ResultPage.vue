@@ -6,15 +6,7 @@
     </header>
     <div id="resultPage" class="container">
       <div class="row-cols-1 row-cols-md-2 row-cols-xl-3 row p-3">
-        <CardBox :cardContent="cardContent" />
-        <CardBox :cardContent="cardContent" />
-        <CardBox :cardContent="cardContent" />
-        <CardBox :cardContent="cardContent" />
-        <CardBox :cardContent="cardContent" />
-        <CardBox :cardContent="cardContent" />
-        <CardBox :cardContent="cardContent" />
-        <CardBox :cardContent="cardContent" />
-        <CardBox :cardContent="cardContent" />
+        <CardBox v-for="content, key in contentList" :key="key" :content="JSON.parse(content)"/>
       </div>
     </div>
   </div>
@@ -34,7 +26,7 @@ export default {
     return {
       text: "",
       query: "",
-      cardContent: [],
+      contentList: [],
     };
   },
   mounted: function () {
@@ -51,7 +43,7 @@ export default {
       }
     },
     getResult(res) {
-      this.cardContent = res;
+      this.contentList = res;
     },
   },
 };
