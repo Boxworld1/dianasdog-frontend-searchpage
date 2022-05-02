@@ -1,26 +1,27 @@
 <template>
   <div class="p-3">
-    <div id="medicineBox" class="card col">
-      <!-- <img
-        src="http://p6-dcd.byteimg.com/img/motor-img/60f7fe399047c36208591432805404b0~240x0.png"
-        class="card-img-top"
-        alt=""
-      /> -->
+    <div id="medicineBox" class="card col h-100">
       <div class="card-body">
-        <h5 class="card-title">{{content.item.title}}</h5>
-        <h6>{{content.item.writer}}</h6>
-        <p class="card-text">
-          {{content.item.detail}}
-        </p>
+        <h5 class="card-title text-center">{{ content.item.display.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-center">{{ content.item.display.type }}</h6>
+        <MedicineNavTab :itemKey="itemKey" :content="content.item.display.tab"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import MedicineNavTab from "@/components/MedicineNavTab"
 export default {
   name: "MedicineCard",
+  components: {
+    MedicineNavTab,
+  },
   props: {
+    itemKey: {
+      type: Number,
+      default: () => 0,
+    },
     content: {
       type: Object,
       default: () => {},

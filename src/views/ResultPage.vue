@@ -4,8 +4,8 @@
       <a id="searchIcon" href="/" class="d-none d-md-block mr-4">Search</a>
       <SearchBox :searchText="text"/>
     </header>
-    <div id="resultPage" class="container">
-      <div class="row-cols-1 row-cols-md-2 row-cols-xl-3 row p-3">
+    <div id="resultPage" class="container d-flex justify-content-center">
+      <div class="row row-cols-1 row-cols-lg-2 p-1 w-100">
         <template v-for="content, key in contentList">
           <CarCard v-if="content.type == 'car'" :key="key" :itemKey="key" :content="content"/>
           <PoemCard v-if="content.type == 'poem'" :key="key" :itemKey="key" :content="content"/>

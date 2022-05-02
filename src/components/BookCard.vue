@@ -1,6 +1,6 @@
 <template>
   <div class="p-3">
-    <div id="bookBox" class="card col">
+    <div id="bookBox" class="card col h-100">
       <!-- <img
         src="http://p6-dcd.byteimg.com/img/motor-img/60f7fe399047c36208591432805404b0~240x0.png"
         class="card-img-top"
