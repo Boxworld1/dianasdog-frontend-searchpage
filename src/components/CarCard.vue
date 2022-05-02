@@ -1,6 +1,6 @@
 <template>
   <div class="p-3">
-    <div id="carBox" class="card col h-100">
+    <div class="card col h-100">
       <ImageCarousel
         :imageList="content.picture"
         :myID="'car' + itemKey.toString()"

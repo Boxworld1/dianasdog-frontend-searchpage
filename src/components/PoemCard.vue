@@ -2,10 +2,10 @@
   <div class="p-3">
     <div id="poemBox" class="card col h-100">
       <div class="card-body">
-        <h5 class="card-title">{{content.item.title}}</h5>
-        <h6 class="margin-bottom mb-2">{{content.item.writer}}</h6>
-        <p class="card-text">
-          {{content.item.detail}}
+        <h5 class="card-title text-center">{{content.item.display.title}}</h5>
+        <h6 class="margin-bottom mb-2 text-center">{{content.item.display.writer}}</h6>
+        <p class="card-text text-center">
+          {{content.item.display.detail}}
         </p>
       </div>
     </div>
@@ -18,6 +18,10 @@ export default {
   components: {
   },
   props: {
+    itemKey: {
+      type: Number,
+      default: () => 0,
+    },
     content: {
       type: Object,
       default: () => {},
