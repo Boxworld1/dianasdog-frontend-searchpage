@@ -6,7 +6,12 @@
     </header>
     <div id="resultPage" class="container">
       <div class="row-cols-1 row-cols-md-2 row-cols-xl-3 row p-3">
-        <CardBox v-for="content, key in contentList" :key="key" :content="JSON.parse(content)"/>
+        <template v-for="content, key in contentList">
+          <CarCard v-if="content.type == 'car'" :key="key" :content="content"/>
+          <PoemCard v-if="content.type == 'poem'" :key="key" :content="content"/>
+          <BookCard v-if="content.type == 'book'" :key="key" :content="content"/>
+          <MedicineCard v-if="content.type == 'medicine'" :key="key" :content="content"/>
+        </template>
       </div>
     </div>
   </div>
@@ -15,12 +20,19 @@
 <script>
 import Request from "@/utils/communication";
 import SearchBox from "@/components/SearchBox";
-import CardBox from "@/components/CardBox";
+import CarCard from "@/components/CarCard";
+import BookCard from "@/components/BookCard";
+import PoemCard from "@/components/PoemCard";
+import MedicineCard from "@/components/MedicineCard";
+
 export default {
   name: "ResultPage",
   components: {
     SearchBox,
-    CardBox,
+    CarCard,
+    BookCard,
+    PoemCard,
+    MedicineCard,
   },
   data() {
     return {
@@ -44,6 +56,7 @@ export default {
     },
     getResult(res) {
       this.contentList = res;
+      this.contentList = this.contentList.map((content) => JSON.parse(content))
     },
   },
 };
