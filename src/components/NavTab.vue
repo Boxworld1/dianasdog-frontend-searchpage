@@ -1,35 +1,21 @@
 <template>
   <div>
-    <nav>
-      <div class="nav nav-tabs" role="tablist">
-        <button
-          v-for="(items, index) in content"
-          :key="index"
-          class="nav-link"
-          :class="{active: index==0}"
-          data-bs-toggle="tab"
-          :data-bs-target="'#mynav' + itemKey.toString() + '_' + index.toString()"
-          type="button"
-          role="tab"
-        >
-          {{ items.tag }}
-        </button>
-      </div>
-    </nav>
-    <div class="tab-content" v-for="(items, index) in content" :key="index">
-      <div
-        v-once
-        class="tab-pane fade"
-        :id="'mynav' + itemKey.toString() + '_' + index.toString()"
-        :class="{show: index==0, active: index==0}"
-        role="tabpanel"
-      >
-        <div v-for="(item, key1) in items.series_list.item" :key="key1">
-          <p class="card-text" v-if="key1 < 4">
-            {{ item.series_name }}, {{ item.price }}
-          </p>
-        </div>
-      </div>
+    <div>
+      <b-card no-body>
+        <b-tabs pills card align="center">
+          <template v-for="(items, index) in content">
+            <b-tab v-if="index < 4" :key="index" :title="items.tag" :active="index == 0">
+              <b-card-text>
+                <div v-for="(item, key1) in items.series_list.item" :key="key1">
+                  <p class="card-text" v-if="key1 < 5">
+                    {{ item.series_name }}, {{ item.price }}
+                  </p>
+                </div>
+              </b-card-text>
+            </b-tab>
+          </template>
+        </b-tabs>
+      </b-card>
     </div>
   </div>
 </template>
