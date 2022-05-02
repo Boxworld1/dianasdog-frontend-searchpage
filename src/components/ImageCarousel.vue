@@ -1,32 +1,12 @@
 <template>
   <div
-    id="carouselExampleIndicators"
-    class="carousel slide"
-    data-bs-ride="carousel"
+    :id="myID"
+    class="carousel carousel-dark slide"
+    data-bs-ride="false"
   >
-    <!-- <div class="carousel-indicators">
-      <template v-for="(image, key) in imageList">
-        <button
-          v-if="key == 0"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          :data-bs-slide-to="key"
-          class="active"
-          aria-current="true"
-          :key="key"
-        ></button>
-        <button
-          v-else
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="key"
-          :key="key"
-        ></button>
-      </template>
-    </div> -->
     <div class="carousel-inner">
       <template v-for="(image, key) in imageList">
-        <div class="carousel-item active" :class="{ active: key==0 }" :key="key">
+        <div class="carousel-item" :class="{active: key==0}" :key="key">
           <img :src="image" class="d-block w-100" alt="" />
         </div>
       </template>
@@ -34,7 +14,7 @@
     <button
       class="carousel-control-prev"
       type="button"
-      data-bs-target="#carouselExampleIndicators"
+      :data-bs-target="'#'+myID"
       data-bs-slide="prev"
     >
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -43,7 +23,7 @@
     <button
       class="carousel-control-next"
       type="button"
-      data-bs-target="#carouselExampleIndicators"
+      :data-bs-target="'#'+myID"
       data-bs-slide="next"
     >
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -56,6 +36,10 @@
 export default {
   name: "ImageCarousel",
   props: {
+    myID: {
+      type: String,
+      default: () => "carouselExampleIndicators"
+    },
     imageList: {
       type: Array,
       default: () => [

@@ -7,10 +7,10 @@
     <div id="resultPage" class="container">
       <div class="row-cols-1 row-cols-md-2 row-cols-xl-3 row p-3">
         <template v-for="content, key in contentList">
-          <CarCard v-if="content.type == 'car'" :key="key" :content="content"/>
-          <PoemCard v-if="content.type == 'poem'" :key="key" :content="content"/>
-          <BookCard v-if="content.type == 'book'" :key="key" :content="content"/>
-          <MedicineCard v-if="content.type == 'medicine'" :key="key" :content="content"/>
+          <CarCard v-if="content.type == 'car'" :key="key" :itemKey="key" :content="content"/>
+          <PoemCard v-if="content.type == 'poem'" :key="key" :itemKey="key" :content="content"/>
+          <BookCard v-if="content.type == 'book'" :key="key" :itemKey="key" :content="content"/>
+          <MedicineCard v-if="content.type == 'medicine'" :key="key" :itemKey="key" :content="content"/>
         </template>
       </div>
     </div>
