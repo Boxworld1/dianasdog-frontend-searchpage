@@ -7,7 +7,7 @@
             <b-tab v-if="index < 4" :key="index" :title="items.tag" :active="index == 0">
               <b-card-text>
                 <div v-for="(item, key1) in items.series_list.item" :key="key1">
-                  <p class="card-text" v-if="key1 < 5">
+                  <p class="card-text text-center" v-if="key1 < 5">
                     {{ item.series_name }}, {{ item.price }}
                   </p>
                 </div>
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: "NavTab",
+  name: "CarNavTab",
   props: {
     itemKey: {
       type: Number,
