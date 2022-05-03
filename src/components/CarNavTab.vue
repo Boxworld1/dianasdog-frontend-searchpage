@@ -4,10 +4,15 @@
       <b-card no-body>
         <b-tabs pills card align="center">
           <template v-for="(items, index) in content">
-            <b-tab v-if="index < 4" :key="index" :title="items.tag" :active="index == 0">
+            <b-tab
+              v-if="index < 4"
+              :key="index"
+              :title="items.tag"
+              :active="index == 0"
+            >
               <b-card-text>
                 <div v-for="(item, key1) in items.series_list.item" :key="key1">
-                  <p class="card-text text-center" v-if="key1 < 5">
+                  <p class="card-text text-center" v-if="key1 < 5" :id="'carnavtab_' + key1.toString()">
                     {{ item.series_name }}, {{ item.price }}
                   </p>
                 </div>
@@ -24,13 +29,8 @@
 export default {
   name: "CarNavTab",
   props: {
-    itemKey: {
-      type: Number,
-      default: () => 0,
-    },
     content: {
       type: Array,
-      default: () => [],
     },
   },
   data() {

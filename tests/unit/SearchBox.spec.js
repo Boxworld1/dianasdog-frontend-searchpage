@@ -2,7 +2,9 @@ import { shallowMount } from '@vue/test-utils'
 import SearchBox from '@/components/SearchBox.vue'
 
 describe('SearchBox.vue', () => {
-  const wrapper = shallowMount(SearchBox)
+  const wrapper = shallowMount(SearchBox, {
+    stubs: ['router-link', 'router-view']
+  })
   const testcase = "my input"
   
   it('文本框输入', () => {

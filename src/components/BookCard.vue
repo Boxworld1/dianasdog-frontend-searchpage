@@ -6,12 +6,12 @@
         :myID="'book' + itemKey.toString()"
       />
       <div class="card-body">
-        <h5 class="card-title text-center">{{content.item.display.title}}</h5>
-        <p class="card-subtitle text-center">
+        <h5 class="card-title text-center" id="bookcard_title">{{content.item.display.title}}</h5>
+        <p class="card-subtitle text-center" id="bookcard_desc">
           {{content.item.display.column_desc}}
         </p>
         <h6>作者</h6>
-        <p class="card-text">
+        <p class="card-text" id="bookcard_author">
           {{content.item.display.column_author}}
         </p>
         <h6>章节一览</h6>
@@ -19,7 +19,7 @@
           {{item.title}}
         </p>
         <h6>简介</h6>
-        <p class="card-text">
+        <p class="card-text" id="bookcard_abstract">
           {{content.item.display.column_abstract}}
         </p>
       </div>
