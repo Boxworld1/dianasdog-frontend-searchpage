@@ -1,25 +1,12 @@
 <template>
   <div id="app">
-    <HomePage v-if="getPath()=='/'"/>
-    <ResultPage v-else/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import ResultPage from './views/ResultPage.vue'
-import HomePage from './views/HomePage.vue'
-
 export default {
   name: 'app',
-  components: {
-    ResultPage,
-    HomePage
-  },
-  methods: {
-    getPath() {
-      return document.location.pathname
-    },
-  }
 }
 </script>
 

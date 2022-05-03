@@ -42,7 +42,9 @@ export default {
     };
   },
   mounted: function () {
-    this.text = decodeURIComponent(this.getPath()).slice(1)
+    this.text = this.$route.params.querystring
+    console.log(this.$route.params.querystring)
+    // this.text = decodeURIComponent(this.getPath()).slice(1)
     Request.query(this.querySucceed, this.getResult, this.text);
   },
   methods: {
@@ -56,7 +58,9 @@ export default {
     },
     getResult(res) {
       this.contentList = res;
-      this.contentList = this.contentList.map((content) => JSON.parse(content))
+      if (res != null) {
+        this.contentList = this.contentList.map((content) => JSON.parse(content))
+      }
     },
   },
 };
@@ -85,9 +89,5 @@ header {
   align-items: center;
   margin: 0;
   padding: 10px;
-}
-
-#CardBox {
-
 }
 </style>
