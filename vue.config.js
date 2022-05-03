@@ -4,9 +4,9 @@ module.exports = defineConfig({
   devServer: {
     proxy: {
       '/search': {
-        // target: 'https://Backend-DianasDog.app.secoder.net', // 伺服器地址
-        // secure: false,
-        target: 'http://localhost:80',
+        target: 'https://Backend-DianasDog.app.secoder.net', // 伺服器地址
+        secure: false,
+        // target: 'http://localhost:80',
         changeOrigin: true,
       }
     }
