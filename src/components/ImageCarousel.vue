@@ -8,7 +8,7 @@
     <div class="carousel-inner">
       <template v-for="(image, key) in imageList">
         <div class="carousel-item" :class="{active: key==0}" :key="key">
-          <img :src="image" class="d-block mx-auto" height="300px" alt="" />
+          <img :src="image" class="d-block mx-auto" :width="width" :height="height" alt="" />
         </div>
       </template>
     </div>
@@ -18,6 +18,7 @@
       :data-bs-target="'#'+myID"
       data-bs-slide="prev"
       id="imagecarousel_left_button"
+      v-if="imageList.length > 1"
     >
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
@@ -28,6 +29,7 @@
       :data-bs-target="'#'+myID"
       data-bs-slide="next"
       id="imagecarousel_right_button"
+      v-if="imageList.length > 1"
     >
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
@@ -47,6 +49,14 @@ export default {
       type: Array,
       default: () => [],
     },
+    height: {
+      type: String,
+      default: () => "auto"
+    },
+    width: {
+      type: String,
+      default: () => "auto"
+    }
   },
   data() {
     return {};

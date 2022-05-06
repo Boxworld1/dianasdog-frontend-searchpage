@@ -4,6 +4,7 @@
       <ImageCarousel
         :imageList="content.picture"
         :myID="'car' + itemKey.toString()"
+        :width="75+'%'"
       />
       <div class="card-body">
         <h5 class="card-title text-center" id="carcard_title">
