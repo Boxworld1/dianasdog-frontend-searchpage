@@ -2,9 +2,7 @@ import { mount } from '@vue/test-utils'
 import HomePage from '@/views/HomePage.vue'
 
 describe('HomePage.vue', () => {
-  const wrapper = mount(HomePage, {
-    stubs: ['router-link', 'router-view']
-  })
+  const wrapper = mount(HomePage)
   const testcase = "红豆词"
   
   it('文本框输入', () => {

@@ -6,9 +6,18 @@
           <template v-for="(items, index) in content">
             <b-tab :key="index" :title="items.name" :active="index == 0">
               <div>
-                <div v-for="(item, key1) in items.tag" :key="key1" class="d-flex flex-column align-items-start">
-                  <h6 class="card-subtitle mb-2">{{ item.name }}</h6>
-                  <p>
+                <div
+                  v-for="(item, key1) in items.tag"
+                  :key="key1"
+                  class="d-flex flex-column align-items-start"
+                >
+                  <h6
+                    class="card-subtitle mb-2"
+                    :id="'medicinenavtab_name_' + key1.toString()"
+                  >
+                    {{ item.name }}
+                  </h6>
+                  <p :id="'medicinenavtab_content_' + key1.toString()">
                     {{ item.content }}
                   </p>
                 </div>
@@ -25,13 +34,8 @@
 export default {
   name: "MedicineNavTab",
   props: {
-    itemKey: {
-      type: Number,
-      default: () => 0,
-    },
     content: {
       type: Array,
-      default: () => [],
     },
   },
   data() {

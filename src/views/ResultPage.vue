@@ -44,13 +44,9 @@ export default {
   mounted: function () {
     this.text = this.$route.params.querystring
     console.log(this.$route.params.querystring)
-    // this.text = decodeURIComponent(this.getPath()).slice(1)
     Request.query(this.querySucceed, this.getResult, this.text);
   },
   methods: {
-    getPath() {
-      return document.location.pathname;
-    },
     querySucceed(bool) {
       if (!bool) {
         alert("查询失败！");

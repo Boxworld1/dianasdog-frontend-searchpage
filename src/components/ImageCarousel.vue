@@ -8,7 +8,7 @@
     <div class="carousel-inner">
       <template v-for="(image, key) in imageList">
         <div class="carousel-item" :class="{active: key==0}" :key="key">
-          <img :src="image" class="d-block w-100" alt="" />
+          <img :src="image" class="d-block mx-auto" height="300px" alt="" />
         </div>
       </template>
     </div>
@@ -17,6 +17,7 @@
       type="button"
       :data-bs-target="'#'+myID"
       data-bs-slide="prev"
+      id="imagecarousel_left_button"
     >
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
@@ -26,6 +27,7 @@
       type="button"
       :data-bs-target="'#'+myID"
       data-bs-slide="next"
+      id="imagecarousel_right_button"
     >
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
