@@ -4,7 +4,6 @@ module.exports = {
   testResultsProcessor: 'jest-sonar-reporter',
   collectCoverageFrom: [
     'src/**/*.{js,vue}',
-    '!src/main.js',
     "!<rootDir>/node_modules/",
     "!<rootDir>/path/to/dir/",
   ],
