@@ -3,6 +3,26 @@ import {
 } from '@vue/test-utils'
 import ImageCarousel from '@/components/ImageCarousel.vue'
 
+describe('check default value', () => {
+  const props = shallowMount(ImageCarousel).props()
+  const imgList = props.imageList
+  expect(imgList.length).toBe(0)
+})
+
+describe('ImageCarousel.vue with list.length = 0', () => {
+  const wrapper = shallowMount(ImageCarousel, {
+    propsData: {
+      myID: "car0",
+      imageList: []
+    }
+  })
+
+  it('check button existence', () => {
+    expect(wrapper.find('#imagecarousel_left_button').exists()).toBe(false)
+    expect(wrapper.find('#imagecarousel_right_button').exists()).toBe(false)
+  })
+})
+
 describe('ImageCarousel.vue with list.length = 0', () => {
   const wrapper = shallowMount(ImageCarousel, {
     propsData: {
