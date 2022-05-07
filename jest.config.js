@@ -12,5 +12,9 @@ module.exports = {
     "text",
     "lcov"
   ],
+  setupFiles: [
+    './tests/unit/setup.js',
+    './vue.config.js'
+  ],
   testTimeout: 30000,
 }
