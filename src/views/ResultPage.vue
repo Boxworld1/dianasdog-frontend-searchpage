@@ -37,18 +37,15 @@ export default {
   data() {
     return {
       text: "",
-      query: "",
       contentList: [],
     };
   },
   mounted: function () {
-    this.text = decodeURIComponent(this.getPath()).slice(1)
+    this.text = this.$route.params.querystring
+    console.log(this.$route.params.querystring)
     Request.query(this.querySucceed, this.getResult, this.text);
   },
   methods: {
-    getPath() {
-      return document.location.pathname;
-    },
     querySucceed(bool) {
       if (!bool) {
         alert("查询失败！");
@@ -56,7 +53,9 @@ export default {
     },
     getResult(res) {
       this.contentList = res;
-      this.contentList = this.contentList.map((content) => JSON.parse(content))
+      if (res != null) {
+        this.contentList = this.contentList.map((content) => JSON.parse(content))
+      }
     },
   },
 };
@@ -85,9 +84,5 @@ header {
   align-items: center;
   margin: 0;
   padding: 10px;
-}
-
-#CardBox {
-
 }
 </style>

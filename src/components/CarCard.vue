@@ -4,10 +4,15 @@
       <ImageCarousel
         :imageList="content.picture"
         :myID="'car' + itemKey.toString()"
+        :width="75+'%'"
       />
       <div class="card-body">
-        <h5 class="card-title text-center">{{ content.item.display.title }}</h5>
-        <CarNavTab :itemKey="itemKey" :content="content.item.display.sub_brands.item"/>
+        <h5 class="card-title text-center" id="carcard_title">
+          {{ content.item.display.title }}
+        </h5>
+        <CarNavTab
+          :content="content.item.display.sub_brands.item"
+        />
       </div>
     </div>
   </div>
@@ -15,7 +20,7 @@
 
 <script>
 import ImageCarousel from "@/components/ImageCarousel";
-import CarNavTab from "@/components/CarNavTab"
+import CarNavTab from "@/components/CarNavTab";
 
 export default {
   name: "CarCard",
