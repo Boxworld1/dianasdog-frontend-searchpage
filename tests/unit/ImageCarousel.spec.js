@@ -3,7 +3,39 @@ import {
 } from '@vue/test-utils'
 import ImageCarousel from '@/components/ImageCarousel.vue'
 
-describe('ImageCarousel.vue', () => {
+describe('ImageCarousel.vue with list.length = 0', () => {
+  const wrapper = shallowMount(ImageCarousel, {
+    propsData: {
+      myID: "car0",
+      imageList: []
+    }
+  })
+
+  it('check button existence', () => {
+    expect(wrapper.find('#imagecarousel_left_button').exists()).toBe(false)
+    expect(wrapper.find('#imagecarousel_right_button').exists()).toBe(false)
+  })
+
+})
+
+describe('ImageCarousel.vue with list = 1', () => {
+  const wrapper = shallowMount(ImageCarousel, {
+    propsData: {
+      myID: "car0",
+      imageList: [
+        "http://p1-dcd.byteimg.com/img/motor-img/220aced9e4137e45fd33eb9efec89c3b~240x0.png",
+      ]
+    }
+  })
+
+  it('check button existence', () => {
+    expect(wrapper.find('#imagecarousel_left_button').exists()).toBe(false)
+    expect(wrapper.find('#imagecarousel_right_button').exists()).toBe(false)
+  })
+
+})
+
+describe('ImageCarousel.vue with list > 1', () => {
   const wrapper = shallowMount(ImageCarousel, {
     propsData: {
       myID: "car0",

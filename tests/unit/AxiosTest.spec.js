@@ -9,7 +9,7 @@ describe('api', () => {
     moxios.uninstall(axios);
   });
 
-  it('api success with code 200', async () => {
+  it('api successed with code 200', async () => {
     moxios.stubRequest('/search', {
       status: 200,
       response: {}
@@ -22,7 +22,7 @@ describe('api', () => {
     );
   });
 
-  it('api success with code 201', async () => {
+  it('api successed with code 201', async () => {
     moxios.stubRequest('/search', {
       status: 201,
       response: {}
@@ -35,7 +35,20 @@ describe('api', () => {
     );
   });
 
-  it('api fail with code 400', async () => {
+  it('api responsed code 202', async () => {
+    moxios.stubRequest('/search', {
+      status: 202,
+      response: {}
+    });
+
+    await Request.query(
+      () => {},
+      () => {},
+      "红豆词",
+    );
+  });
+
+  it('api failed with code 400', async () => {
     moxios.stubRequest('/search', {
       status: 400,
       response: {}
