@@ -2,17 +2,40 @@
   <div>
     <header class="d-flex justify-content-center">
       <a id="searchIcon" href="/" class="d-none d-md-block mr-4">Search</a>
-      <SearchBox :searchText="text"/>
+      <SearchBox :searchText="text" />
     </header>
     <div id="resultPage" class="container d-flex justify-content-center">
       <div class="row row-cols-1 row-cols-lg-2 p-1 w-100">
-        <template v-for="content, key in contentList">
-          <CarCard v-if="content.type == 'car'" :key="key" :itemKey="key" :content="content"/>
-          <PoemCard v-if="content.type == 'poem'" :key="key" :itemKey="key" :content="content"/>
-          <BookCard v-if="content.type == 'book'" :key="key" :itemKey="key" :content="content"/>
-          <MedicineCard v-if="content.type == 'medicine'" :key="key" :itemKey="key" :content="content"/>
+        <template v-for="(content, key) in contentList">
+          <CarCard
+            v-if="content.type == 'car'"
+            :key="key"
+            :itemKey="key"
+            :content="content"
+          />
+          <PoemCard
+            v-if="content.type == 'poem'"
+            :key="key"
+            :itemKey="key"
+            :content="content"
+          />
+          <BookCard
+            v-if="content.type == 'book'"
+            :key="key"
+            :itemKey="key"
+            :content="content"
+          />
+          <MedicineCard
+            v-if="content.type == 'medicine'"
+            :key="key"
+            :itemKey="key"
+            :content="content"
+          />
         </template>
       </div>
+    </div>
+    <div v-if="contentList.length == 0" class="d-flex justify-content-center">
+      找不到符合搜寻条件的信息。
     </div>
   </div>
 </template>
@@ -41,8 +64,8 @@ export default {
     };
   },
   mounted: function () {
-    this.text = this.$route.params.querystring
-    console.log(this.$route.params.querystring)
+    this.text = this.$route.params.querystring;
+    console.log(this.$route.params.querystring);
     Request.query(this.querySucceed, this.getResult, this.text);
   },
   methods: {
@@ -54,7 +77,9 @@ export default {
     getResult(res) {
       this.contentList = res;
       if (res != null) {
-        this.contentList = this.contentList.map((content) => JSON.parse(content))
+        this.contentList = this.contentList
+          .filter((content) => content != "")
+          .map((content) => JSON.parse(content));
       }
     },
   },
@@ -68,7 +93,7 @@ export default {
   font-weight: bold;
   color: black;
   margin: 0 20px;
-  text-decoration:none;
+  text-decoration: none;
 }
 
 #resultPage {
