@@ -6,6 +6,7 @@ module.exports = {
     'src/**/*.{js,vue}',
     '!src/main.js',
     '!src/App.vue',
+    '!src/views/ResultPage.vue',
     "!<rootDir>/node_modules/",
     "!<rootDir>/path/to/dir/",
   ],

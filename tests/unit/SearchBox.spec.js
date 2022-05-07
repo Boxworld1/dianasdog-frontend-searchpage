@@ -1,6 +1,12 @@
 import { shallowMount } from '@vue/test-utils'
 import SearchBox from '@/components/SearchBox.vue'
 
+describe('check default value', () => {
+  const props = shallowMount(SearchBox).props()
+  const searchText = props.searchText
+  expect(searchText.length).toBe(0)
+})
+
 describe('SearchBox.vue', () => {
 
   const wrapper = shallowMount(SearchBox, {

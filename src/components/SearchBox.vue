@@ -27,6 +27,7 @@ export default {
   props: {
     searchText: {
       type: String,
+      default: () => ""
     },
   },
   watch: {
