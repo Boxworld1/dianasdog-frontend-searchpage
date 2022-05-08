@@ -34,7 +34,10 @@
         </template>
       </div>
     </div>
-    <div v-if="contentList.length == 0" class="d-flex justify-content-center">
+    <div v-if="contentList == null" class="d-flex justify-content-center">
+      搜索中，请稍候⋯⋯
+    </div>
+    <div v-else-if="contentList.length == 0" class="d-flex justify-content-center">
       找不到符合搜寻条件的信息。
     </div>
   </div>
@@ -64,6 +67,7 @@ export default {
     };
   },
   mounted: function () {
+    this.contentList = null;
     this.text = this.$route.params.querystring;
     console.log(this.$route.params.querystring);
     Request.query(this.querySucceed, this.getResult, this.text);
