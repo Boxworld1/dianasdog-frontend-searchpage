@@ -3,8 +3,10 @@ module.exports = {
   collectCoverage: true,
   testResultsProcessor: 'jest-sonar-reporter',
   collectCoverageFrom: [
-    'src/**/*.{js,vue}',
+    'src/*/*.{js,vue}',
     '!src/main.js',
+    '!src/App.vue',
+    '!src/views/ResultPage.vue',
     "!<rootDir>/node_modules/",
     "!<rootDir>/path/to/dir/",
   ],
