@@ -84,6 +84,8 @@ export default {
         this.contentList = this.contentList
           .filter((content) => content != "")
           .map((content) => JSON.parse(content));
+      } else {
+        this.contentList = [];
       }
     },
   },
