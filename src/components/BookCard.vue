@@ -4,8 +4,8 @@
       <ImageCarousel
         :imageList="content.picture"
         :myID="'book' + itemKey.toString()"
-        :height="400"
-        :width="auto"
+        height="400px"
+        width="auto"
       />
       <div class="card-body">
         <h5 class="card-title text-center" id="bookcard_title">{{content.item.display.title}}</h5>
